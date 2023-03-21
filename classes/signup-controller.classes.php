@@ -32,7 +32,7 @@ class SignupController extends Signup
             exit();
         }
         if($this->pwdMatch() === false) {
-            // echo "Invalid email!"
+            // echo "Invalid password!"
             header("location: ../index.php?error=passwordmatch");
             exit();
         }
