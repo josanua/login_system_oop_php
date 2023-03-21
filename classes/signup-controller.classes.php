@@ -1,18 +1,48 @@
 <?php
 
-class SignupController
+class SignupController extends Signup
 {
     private $uid;
     private $pwd;
     private $pwdRepeat;
     private $email;
 
-    public function __cunstruct($uid, $pwd, $pwdRepeat, $email)
+    public function __construct($uid, $pwd, $pwdRepeat, $email)
     {
         $this->uid = $uid;
         $this->pwd = $pwd;
         $this->pwdRepeat = $pwdRepeat;
-        $this->uid = $email;
+        $this->email = $email;
+    }
+
+    public function signupUser() {
+        if($this->emptyInput() === false) {
+            // echo "Empty input!"
+            header("location: ../index.php?error=emptyinput");
+            exit();
+        }
+        if($this->invalidUid() === false) {
+            // echo "Invalid username!"
+            header("location: ../index.php?error=username");
+            exit();
+        }
+        if($this->invalidEmail() === false) {
+            // echo "Invalid email!"
+            header("location: ../index.php?error=email");
+            exit();
+        }
+        if($this->pwdMatch() === false) {
+            // echo "Invalid email!"
+            header("location: ../index.php?error=passwordmatch");
+            exit();
+        }
+        if($this->uidTakenCheck() === false) {
+            // echo "Username or email taken!"
+            header("location: ../index.php?error=useroremailtaken");
+            exit();
+        }
+
+        $this->setUser($this->uid, $this->pwd, $this->email);
     }
 
     private function emptyInput()
@@ -59,6 +89,19 @@ class SignupController
         $result;
 
         if ($this->pwd !== $this->pwdRepeat) {
+            $result = false;
+        } else {
+            $result = true;
+        }
+
+        return $result;
+    }
+
+    private function uidTakenCheck()
+    {
+        $result;
+
+        if (!$this->checkUser($this->uid, $this->email)) {
             $result = false;
         } else {
             $result = true;
