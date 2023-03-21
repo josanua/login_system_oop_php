@@ -16,5 +16,6 @@
         <br>
         <input type="submit" name="submit" placeholder="Username">
     </form>
+    <?php phpinfo() ?>
 </body>
 </html>
