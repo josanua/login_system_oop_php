@@ -15,6 +15,11 @@ class SignupController extends Signup
         $this->email = $email;
     }
 
+
+    /**
+     * Check form data and Set User if OK.
+     * @return void
+     */
     public function signupUser() {
         if($this->emptyInput() === false) {
             // echo "Empty input!"
@@ -49,7 +54,7 @@ class SignupController extends Signup
     {
         $result;
 
-        if (empty($this->uid || $this->pwd || $this->pwdRepeat || $this->uid)) {
+        if (empty($this->uid || $this->pwd || $this->pwdRepeat || $this->email)) {
             $result = false;
         } else {
             $result = true;

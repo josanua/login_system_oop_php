@@ -15,6 +15,7 @@ class Signup extends Dbh
         if(!$stmt->execute(array($uid, $hashedPwd, $email))) {
             $stmt = null;
             header("location: ../index.php?error=stmtfailed");
+            exit();
         }
 
         $stmt = null;

@@ -1,6 +1,6 @@
 <?php
 
-class SignupController extends Signup
+class loginController extends Login
 {
     private $uid;
     private $pwd;
@@ -13,7 +13,7 @@ class SignupController extends Signup
 
 
     /**
-     * Check form data and Login User if OK.
+     * Check form data and Set User if OK.
      * @return void
      */
     public function loginUser()
@@ -24,14 +24,14 @@ class SignupController extends Signup
             exit();
         }
 
-        $this->getUser($this->uid, $this->pwd);
+        $this->getUser($this->uid, $this->pwd, $this->email);
     }
 
     private function emptyInput()
     {
         $result;
 
-        if (empty($this->uid || $this->pwd )) {
+        if (empty($this->uid || $this->pwd)) {
             $result = false;
         } else {
             $result = true;
