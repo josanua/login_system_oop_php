@@ -3,6 +3,7 @@
 class Dbh
 {
 
+//    TODO: change with const or add .env file
 //    define("MYSQL_HOST", 'localhost');
 //    define("MYSQL_DATABASE", '{your_database_name}');
 //    define("MYSQL_USERNAME", '{your_username}');

@@ -8,14 +8,21 @@
     <title>Home Page</title>
 </head>
 <body>
-    <form action="includes/signup.inc.php" method="post">
-        <input type="text" name="uid" placeholder="Username">
-        <input type="password" name="pwd" placeholder="Password">
-        <input type="password" name="pwdrepeat" placeholder="Repeat Password">
-        <input type="text" name="email" placeholder="E-mail">
-        <br>
-        <input type="submit" name="submit" placeholder="Username">
+    <h2>SIGN UP</h2>
+    <form action="includes/signup.inc.php" method="post">  <br>
+        <input type="text" name="uid" placeholder="Username">  <br>
+        <input type="password" name="pwd" placeholder="Password">  <br>
+        <input type="password" name="pwdrepeat" placeholder="Repeat Password">  <br>
+        <input type="text" name="email" placeholder="E-mail">   <br>
+        <button type="submit" name="submit">Sing Up</button>
     </form>
-    <?php phpinfo() ?>
+
+    <h2>LOGIN</h2>
+    <form action="includes/signup.inc.php" method="post">
+        <input type="text" name="uid" placeholder="Username">  <br>
+        <input type="password" name="pwd" placeholder="Password">  <br>
+        <button type="submit" name="submit">Login</button>
+    </form>
+    <?php //phpinfo() ?>
 </body>
 </html>
